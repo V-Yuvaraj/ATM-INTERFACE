@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEOPLE BANK'S ATM</title>
+    <link rel="stylesheet" href="atm.css">
+   <link rel="icon" type="image-type" href="logo4.png">
+</head>
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<body background="Backgroundimg.jpeg">
+    
+   <div class="logo">
+    <img src="logo4.png" alt="logo image"   >
+    <h1 class="slogan">People Bank of India</h1>
+
+   </div>
+    
+<div class="headline">
+    
+
+    <h1> WELCOME TO PBI</h1>
+</div>
+<h2>note:pin-1624</h2>
+
+<div>
+   <a class="else-part" id="message1"></a>
+     <button id="nextbutton" class="confirm"> confirm</button>
+   
+    <button  class="cancel" onclick="clear1()">cancel</button>
+</div>
+
+<!----------------------------------------------------------------------------------------------->
+<div class="pin">
+    <input type="text"   class="input-box" placeholder="enter your pin"  id="screen">
+
+</div>
+<div class="numberpanel">
+
+    <div  class="no-panel">
+
+    <button onclick="Clear()">Cl</button>
+    <button onclick="del()">DEL</button>
+    
+    
+    <button onclick="display('7')">7</button>
+    <button onclick="display('8')">8</button>
+    <button onclick="display('9')">9</button>
+    
+    <button onclick="display('4')">4</button>
+    <button onclick="display('5')">5</button>
+    <button onclick="display('6')">6</button>
+   
+    <button onclick="display('3')">3</button>
+    <button onclick="display('2')">2</button>
+    <button onclick="display('1')">1</button>
+   
+    <button onclick="display('0')">0</button>
+  
+
+
+</div>
+</div>
+<!------------------------------------------------------------------------------------------------>
+<script>
+  let outputscreen=document.getElementById("screen");
+        function display(num){
+            outputscreen.value += num;
+
+        }
+        function Clear(){
+            outputscreen.value = "";
+        }
+        function del(){
+            outputscreen.value = outputscreen.value.slice(0,-1);
+
+        }
+        function clear1(){
+            outputscreen.value="";
+        }
+
+        document.getElementById('nextbutton').addEventListener('click', function() {
+    let userInput = document.getElementById('screen').value;
+    let condition = userInput === '1624'; // Define your condition based on user input
+    
+    if (condition) {
+        // Navigate to the next page
+        window.location.href = 'operations.html';
+    } else {
+         const messageDiv=document.getElementById('message1');
+         messageDiv.innerText = 'Incorrect code, please try again!';
+        setTimeout(() => {
+        messageDiv.innerText = ' ';
+    }, 3000);
+    outputscreen.value="";
+    }
+});
+
+
+</script>
+</body>
+</html>
